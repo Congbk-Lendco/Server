@@ -786,3 +786,4 @@ C:\Users\DavidBK\OneDrive\Desktop\New folder\NewServer\bin\Debug\net9.0\runtimes
 C:\Users\DavidBK\OneDrive\Desktop\New folder\NewServer\obj\Debug\net9.0\LendCoBE.94F285D3.Up2Date
 C:\Users\DavidBK\OneDrive\Desktop\New folder\NewServer\obj\Debug\net9.0\LendCoBEAPP.genruntimeconfig.cache
 C:\Users\DavidBK\OneDrive\Desktop\New folder\NewServer\obj\Debug\net9.0\ref\LendCoBEAPP.dll
+C:\Users\DavidBK\OneDrive\Desktop\New folder\NewServer\obj\Debug\net9.0\LendCoBEAPP.sourcelink.json

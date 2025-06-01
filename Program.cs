@@ -4,6 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using LendCoBEAPP;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,12 +17,11 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
-{
-    policy.AllowAnyOrigin()   // cho phép tất cả origin (domain) gọi API
-          .AllowAnyHeader()
-          .AllowAnyMethod();
-});
-
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
 });
 
 // Đăng ký controller
@@ -31,6 +32,17 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+// Phục vụ static files trong wwwroot (mặc định)
+app.UseStaticFiles();
+
+// Phục vụ thư mục uploads bên trong wwwroot/uploads, map với /uploads
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(builder.Environment.ContentRootPath, "wwwroot", "uploads")),
+    RequestPath = "/uploads"
+});
 
 // Sử dụng Swagger nếu môi trường là Development
 if (app.Environment.IsDevelopment())
