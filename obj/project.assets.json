@@ -5200,24 +5200,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DavidBK\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\DELL\\.nuget\\packages\\": {},
+    "D:\\ProgramFile\\Offline Packages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DavidBK\\OneDrive\\Desktop\\New folder\\NewServer\\LendCoBEAPP.csproj",
+      "projectUniqueName": "C:\\Users\\DELL\\Desktop\\New folder\\LendCoServer\\LendCoBEAPP.csproj",
       "projectName": "LendCoBEAPP",
-      "projectPath": "C:\\Users\\DavidBK\\OneDrive\\Desktop\\New folder\\NewServer\\LendCoBEAPP.csproj",
-      "packagesPath": "C:\\Users\\DavidBK\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DavidBK\\OneDrive\\Desktop\\New folder\\NewServer\\obj\\",
+      "projectPath": "C:\\Users\\DELL\\Desktop\\New folder\\LendCoServer\\LendCoBEAPP.csproj",
+      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\DELL\\Desktop\\New folder\\LendCoServer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "D:\\ProgramFile\\Offline Packages"
       ],
       "configFilePaths": [
-        "C:\\Users\\DavidBK\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 24.1.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5225,6 +5225,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "D:\\ProgramFile\\System\\Components\\Packages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5243,7 +5244,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net9.0": {
@@ -5301,16 +5302,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\DavidBK\\OneDrive\\Desktop\\New folder\\NewServer\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

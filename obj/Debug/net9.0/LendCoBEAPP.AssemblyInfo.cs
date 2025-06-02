@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LendCoBEAPP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e99f897d68a73a791a66293a0c7509a75a8485dc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3408d2d53dfe87bebcca9c49e295eff132b5b04b")]
 [assembly: System.Reflection.AssemblyProductAttribute("LendCoBEAPP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LendCoBEAPP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

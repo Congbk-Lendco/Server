@@ -9,14 +9,14 @@ using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Đăng ký DbContext với connection string đúng
+// DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=LenCoDB;Trusted_Connection=True;TrustServerCertificate=True;"));
 
-// Cấu hình CORS
+// CORS
 builder.Services.AddCors(options =>
 {
-    options.AddDefaultPolicy(policy =>
+    options.AddPolicy("AllowAll", policy =>
     {
         policy.AllowAnyOrigin()
               .AllowAnyHeader()
@@ -24,19 +24,17 @@ builder.Services.AddCors(options =>
     });
 });
 
-// Đăng ký controller
+// Controllers
 builder.Services.AddControllers();
 
-// Cho phép sử dụng Swagger
+// Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Phục vụ static files trong wwwroot (mặc định)
+// Static files
 app.UseStaticFiles();
-
-// Phục vụ thư mục uploads bên trong wwwroot/uploads, map với /uploads
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(
@@ -44,15 +42,16 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath = "/uploads"
 });
 
-// Sử dụng Swagger nếu môi trường là Development
+// Swagger UI (dev only)
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-app.UseCors();      // CORS nên được đặt trước UseRouting
 app.UseRouting();
+
+app.UseCors("AllowAll");  // <-- PHẢI truyền tên policy
 
 app.UseAuthorization();
 

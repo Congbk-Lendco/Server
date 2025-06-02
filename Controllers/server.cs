@@ -9,6 +9,7 @@ using Microsoft.Data.SqlClient;
 using Dapper;
 using System.Data;
 using System.Linq;
+using System;
 
 namespace LendCoBEAPP.Controllers
 {
@@ -24,6 +25,52 @@ namespace LendCoBEAPP.Controllers
             _context = context;
             _configuration = configuration;
         }
+
+        [HttpPost("add-comment")]
+public async Task<IActionResult> AddComment([FromBody] PostCommentDto dto)
+{
+    if (string.IsNullOrWhiteSpace(dto.NoiDung))
+        return BadRequest(new { message = "Nội dung không được để trống" });
+
+    var comment = new Comment
+    {
+        CommentId = Guid.NewGuid(),
+        VanBanId = dto.VanBanId,
+        NguoiDungId = dto.NguoiDungId,
+        NoiDung = dto.NoiDung.Trim(),
+        ThoiGian = DateTime.Now,
+        ParentCommentId = dto.ReplyTo
+    };
+
+    try
+    {
+        _context.Comments.Add(comment);
+        await _context.SaveChangesAsync();
+    }
+    catch (Exception ex)
+    {
+        return StatusCode(500, new { message = "Lỗi lưu comment", detail = ex.Message });
+    }
+
+    var nguoiDung = await _context.ThongTinNhanVien
+        .Where(u => u.Id == dto.NguoiDungId)
+        .Select(u => new
+        {
+            TenNguoiDung = u.TenNhanVien,
+            u.Avatar
+        })
+        .FirstOrDefaultAsync();
+
+    return StatusCode(201, new
+    {
+        idComment = comment.CommentId,
+        noiDung = comment.NoiDung,
+        ngayTao = comment.ThoiGian,
+        replyTo = comment.ParentCommentId,
+        tenNguoiDung = nguoiDung?.TenNguoiDung ?? "Ẩn danh",
+        avatarNguoiDung = nguoiDung?.Avatar
+    });
+}
 
         [HttpGet("nhanvien")]
         public async Task<IActionResult> GetThongTinNhanVien()

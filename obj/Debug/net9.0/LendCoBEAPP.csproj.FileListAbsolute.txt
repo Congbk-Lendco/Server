@@ -787,3 +787,4 @@ C:\Users\DavidBK\OneDrive\Desktop\New folder\NewServer\obj\Debug\net9.0\LendCoBE
 C:\Users\DavidBK\OneDrive\Desktop\New folder\NewServer\obj\Debug\net9.0\LendCoBEAPP.genruntimeconfig.cache
 C:\Users\DavidBK\OneDrive\Desktop\New folder\NewServer\obj\Debug\net9.0\ref\LendCoBEAPP.dll
 C:\Users\DavidBK\OneDrive\Desktop\New folder\NewServer\obj\Debug\net9.0\LendCoBEAPP.sourcelink.json
+C:\Users\DELL\Desktop\New folder\LendCoServer\bin\Debug\net9.0\Dapper.dll

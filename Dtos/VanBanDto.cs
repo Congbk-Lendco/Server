@@ -2,7 +2,7 @@ namespace LendCoBEAPP.Dtos
 {
    public class VanBanDto
 {
-    public string id_vanban { get; set; } = null!;
+    public Guid id_vanban { get; set; }
     public DateTime? ngayVB { get; set; }
     public string? soVB { get; set; }
     public string? noiphathanh { get; set; }

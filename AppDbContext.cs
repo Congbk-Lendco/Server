@@ -18,20 +18,23 @@ namespace LendCoBEAPP
         public DbSet<CommentDto> CommentDtos { get; set; }
         public DbSet<VanBanDetaiList> VanBanDetaiList { get; set; }
         public DbSet<LayThongTinNhanVien> ThongTinNhanVien { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            // Các DTO dùng stored procedure hoặc view => không có khóa chính
-            modelBuilder.Entity<VanBanDto>().HasNoKey();
-            modelBuilder.Entity<FileVanBanDto>().HasNoKey();
-            modelBuilder.Entity<CommentDto>().HasNoKey();
-            modelBuilder.Entity<LayThongTinNhanVien>().HasNoKey();
-            modelBuilder.Entity<VanBanDetail>().HasNoKey();
-            modelBuilder.Entity<VanBanDetaiList>().HasNoKey();
+       protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    // Cấu hình bảng cho entity Comment (quan trọng nếu bảng tên là 'Comment', không phải 'Comments')
+    modelBuilder.Entity<Comment>().ToTable("Comment");
 
-            // Cấu hình khóa chính cho NguoiDung nếu cần
-            modelBuilder.Entity<NguoiDung>().HasKey(x => x.Id);
-        }
+    // Các DTO dùng stored procedure hoặc view => không có khóa chính
+    modelBuilder.Entity<VanBanDto>().HasNoKey();
+    modelBuilder.Entity<FileVanBanDto>().HasNoKey();
+    modelBuilder.Entity<CommentDto>().HasNoKey();
+    modelBuilder.Entity<LayThongTinNhanVien>().HasNoKey();
+    modelBuilder.Entity<VanBanDetail>().HasNoKey();
+    modelBuilder.Entity<VanBanDetaiList>().HasNoKey();
+
+    modelBuilder.Entity<NguoiDung>().HasKey(x => x.Id);
+}
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
